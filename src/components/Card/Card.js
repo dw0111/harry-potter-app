@@ -7,12 +7,12 @@ export default function Card(character) {
     src: character.image,
     height: '100',
   })
-  const age = createElement('div', { className: 'Card__age Card__left-align' })
+  const age = createElement('div', { className: 'Card__left-align' })
   if (character.dateOfBirth) {
     age.textContent = `Born: ${character.dateOfBirth}`
   }
   const wand = createElement('div', {
-    className: 'Card__wand Card__left-align',
+    className: 'Card__left-align',
   })
   if (character.wand.core) {
     wand.textContent = `Wand: ${character.wand.wood} with a core of ${character.wand.core}.`

@@ -43,6 +43,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
     "htmlhint": "0.14.2",
+    "husky": "^5.0.9",
     "lint-staged": "10.5.3",
     "prettier": "2.2.1",
     "react": "^17.0.1",
@@ -59,8 +60,5 @@
   "bugs": {
     "url": "https://github.com/dw0111/harry-potter-app.git/issues"
   },
-  "homepage": "https://github.com/dw0111/harry-potter-app.git#readme",
-  "dependencies": {
-    "husky": "^5.0.9"
-  }
+  "homepage": "https://github.com/dw0111/harry-potter-app.git#readme"
 }

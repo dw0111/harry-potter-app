@@ -7,6 +7,18 @@ export default function Card(character) {
     src: character.image,
     height: '100',
   })
+  if (character.house === 'Gryffindor') {
+    image.classList.add('shadow-g')
+  } else if (character.house === 'Slytherin') {
+    image.classList.add('shadow-s')
+  } else if (character.house === 'Ravenclaw') {
+    image.classList.add('shadow-r')
+  } else if (character.house === 'Hufflepuff') {
+    image.classList.add('shadow-h')
+  } else {
+    image.classList.add('shadow-b')
+  }
+
   const age = createElement('div', { className: 'Card__left-align' })
   if (character.dateOfBirth) {
     age.textContent = `Born: ${character.dateOfBirth}`

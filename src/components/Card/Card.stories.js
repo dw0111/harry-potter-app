@@ -5,4 +5,9 @@ export default {
   component: Card,
 }
 
-export const JS = () => Card('Harry Potter')
+export const base = () =>
+  Card({
+    name: 'Harry Potter',
+    image: 'https://unsplash.com/random',
+    wand: { wood: 'yew', core: 'nope' },
+  })

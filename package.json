@@ -59,5 +59,8 @@
   "bugs": {
     "url": "https://github.com/dw0111/harry-potter-app.git/issues"
   },
-  "homepage": "https://github.com/dw0111/harry-potter-app.git#readme"
+  "homepage": "https://github.com/dw0111/harry-potter-app.git#readme",
+  "dependencies": {
+    "husky": "^5.0.9"
+  }
 }

@@ -9,10 +9,10 @@ export default function App() {
 
   document.body.append(SearchBar(showSearchedCard))
 
-  const characters = []
+  let characters
   getCharacters()
     .then(harryandhispeeps => {
-      characters.push(...harryandhispeeps)
+      characters = harryandhispeeps
       createCards(characters)
     })
     .catch(error => console.log(error))

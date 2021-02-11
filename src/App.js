@@ -1,7 +1,8 @@
 import AppHeader from './components/AppHeader'
 import Card from './components/Card/Card'
 import HouseFilter from './components/HouseFilter/Housefilter'
-import createElement from './lib/createElement'
+import CardContainer from './components/CardContainer/CardContainer'
+import SearchBar from './components/SearchBar/SearchBar'
 import getCharacters from './services/getCharacters'
 
 export default function App() {
@@ -9,27 +10,31 @@ export default function App() {
 
   document.body.append(HouseFilter(onFilterByHouse))
 
-  const cardContainer = createElement('div', { className: 'cardContainer' })
+  document.body.append(SearchBar(showSearchedCard))
+
+  const cardContainer = CardContainer()
   document.body.append(cardContainer)
 
   let characters
 
   getCharacters()
     .then(apiData => {
-      createCards(apiData)
       characters = apiData
+      createCards(apiData)
     })
     .catch(error => console.log(error))
 
-  function createCards(characters) {
-    const cards = characters.map(character => Card(character))
-    document.body.append(...cards)
+  function onFilterByHouse(text) {
+    createCards(characters.filter(character => character.house === text))
   }
 
-  function onFilterByHouse(text) {
-    const cards = characters
-      .filter(character => character.house === text)
-      .map(character => Card(character))
-    document.body.append(...cards)
+  function showSearchedCard(inputValue) {
+    createCards(characters.filter(character => inputValue === character.name))
+  }
+
+  function createCards(characters) {
+    const cards = characters.map(character => Card(character))
+    cardContainer.innerHTML = ''
+    cardContainer.append(...cards)
   }
 }

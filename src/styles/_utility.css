@@ -5,3 +5,7 @@
 .m0 {
   margin: 0 !important;
 }
+
+.bshadow {
+  box-shadow: 0 4px 6px var(--color-black);
+}

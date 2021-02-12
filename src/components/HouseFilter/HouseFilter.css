@@ -1,0 +1,7 @@
+.HouseFilter {
+  display: flex;
+  font-size: 0.8em;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 10px;
+}

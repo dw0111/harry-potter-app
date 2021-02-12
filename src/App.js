@@ -29,7 +29,9 @@ export default function App() {
   }
 
   function showSearchedCard(inputValue) {
-    createCards(characters.filter(character => inputValue === character.name))
+    createCards(
+      characters.filter(character => character.name.includes(inputValue))
+    )
   }
 
   function createCards(characters) {

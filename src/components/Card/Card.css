@@ -1,6 +1,7 @@
 .Card {
-  border-top: 1px solid black;
-  padding-bottom: 10px;
+  border: 1px solid var(--color-primary);
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .Card__content {
@@ -8,6 +9,7 @@
   grid-template-columns: 2fr 1fr;
   gap: 5px;
   padding: 5px;
+  font-size: 0.8em;
 }
 
 .Card__left-align {
@@ -17,25 +19,21 @@
 .Card__image {
   justify-self: center;
   grid-column: 2;
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
 }
 
-.shadow-g {
-  box-shadow: 0 0 15px #ae0001;
+.Gryffindor {
+  color: #ae0001;
 }
 
-.shadow-s {
-  box-shadow: 0 0 15px #2a623d;
+.Slytherin {
+  color: #2a623d;
 }
 
-.shadow-r {
-  box-shadow: 0 0 15px #222f5b;
+.Ravenclaw {
+  color: #222f5b;
 }
 
-.shadow-h {
-  box-shadow: 0 0 15px #f0c75e;
-}
-
-.shadow-b {
-  box-shadow: 0 0 15px black;
+.Hufflepuff {
+  color: #f0c75e;
 }

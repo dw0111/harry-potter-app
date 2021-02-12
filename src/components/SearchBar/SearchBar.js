@@ -1,17 +1,15 @@
 import createElement from '../../lib/createElement'
+import './SearchBar.css'
 
 export default function SearchBar(showSearchedCard) {
   const input = createElement('input', {
-    className: 'SearchBar__input',
+    className: 'SearchBar__input bshadow',
     placeholder: 'Search for ...',
   })
-  const button = createElement('button', {
-    className: 'SearchBar__button',
-    innerText: 'Accio character!',
-  })
-  const el = createElement('div', { className: 'SeachBar' }, input, button)
 
-  button.addEventListener('click', () => showSearchedCard(input.value))
+  const el = createElement('div', { className: 'SearchBar' }, input)
+
+  input.addEventListener('input', () => showSearchedCard(input.value))
 
   return el
 }

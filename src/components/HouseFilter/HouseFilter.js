@@ -1,14 +1,14 @@
 import createElement from '../../lib/createElement'
-import Button from '../Button/Button'
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox'
 import './HouseFilter.css'
 
-export default function HouseFilter(onFilterByHouse) {
+export default function HouseFilter(onChangeFilter) {
   const houses = ['Gryffindor', 'Slytherin', 'Ravenclaw', 'Hufflepuff']
 
-  const buttons = houses.map(house => {
-    return Button(house, onFilterByHouse)
+  const checkboxes = houses.map(house => {
+    return FilterCheckbox('house', house, onChangeFilter)
   })
-  const el = createElement('div', { className: 'HouseFilter' }, ...buttons)
+  const el = createElement('div', { className: 'HouseFilter' }, ...checkboxes)
 
   return el
 }

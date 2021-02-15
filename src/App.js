@@ -1,14 +1,16 @@
 import AppHeader from './components/AppHeader'
 import Card from './components/Card/Card'
-import HouseFilter from './components/HouseFilter/Housefilter'
+import HouseFilter from './components/HouseFilter/HouseFilter'
 import CardContainer from './components/CardContainer/CardContainer'
 import SearchBar from './components/SearchBar/SearchBar'
 import getCharacters from './services/getCharacters'
+import AncestryFilter from './components/AncestryFilter/AncestryFilter'
 
 export default function App() {
   document.body.append(AppHeader('Harry Potter-wiki'))
 
-  document.body.append(HouseFilter(onFilterByHouse))
+  document.body.append(HouseFilter(onChangeFilter))
+  document.body.append(AncestryFilter(onChangeFilter))
 
   document.body.append(SearchBar(showSearchedCard))
 
@@ -24,8 +26,31 @@ export default function App() {
     })
     .catch(error => console.log(error))
 
-  function onFilterByHouse(text) {
-    createCards(characters.filter(character => character.house === text))
+  function onChangeFilter(checkbox, filterBy, value) {
+    if (checkbox.checked) {
+      characters = characters.map(card => {
+        if (card[filterBy] === value) {
+          card.checked = true
+          return card
+        } else {
+          return card
+        }
+      })
+    } else {
+      characters = characters.map(card => {
+        if (card[filterBy] === value) {
+          card.checked = false
+          return card
+        } else {
+          return card
+        }
+      })
+    }
+    if (characters.filter(card => card.checked === true).length === 0) {
+      createCards(characters)
+    } else {
+      createCards(characters.filter(card => card.checked === true))
+    }
   }
 
   function showSearchedCard(inputValue) {
@@ -38,5 +63,6 @@ export default function App() {
     const cards = characters.map(character => Card(character))
     cardContainer.innerHTML = ''
     cardContainer.append(...cards)
+    return cards
   }
 }

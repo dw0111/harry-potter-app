@@ -1,14 +1,16 @@
 import AppHeader from './components/AppHeader'
 import Card from './components/Card/Card'
-import HouseFilter from './components/HouseFilter/Housefilter'
+import HouseFilter from './components/HouseFilter/HouseFilter'
 import CardContainer from './components/CardContainer/CardContainer'
 import SearchBar from './components/SearchBar/SearchBar'
 import getCharacters from './services/getCharacters'
+import AncestryFilter from './components/AncestryFilter/AncestryFilter'
 
 export default function App() {
   document.body.append(AppHeader('Harry Potter-wiki'))
 
   document.body.append(HouseFilter(onChangeFilter))
+  document.body.append(AncestryFilter(onChangeFilter))
 
   document.body.append(SearchBar(showSearchedCard))
 
